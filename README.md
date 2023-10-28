@@ -10,7 +10,7 @@
 3. 개발 환경
    Programming Language : Java JDK 17, JavaScript
    DBMS : Oracle xe 11g
-   Markup Language :
+   Markup Language : Html
    Tools : STS4, VS code, DBeaver
    Library : JDBC, Ajax, Bootstrap
    Framework : MyBatis, SpringBoot
