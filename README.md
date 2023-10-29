@@ -7,7 +7,7 @@
   미래도에서 편지를 작성하여 날짜를 지정 후 발송하면 미래도가 해당 날짜에 메일을 전해드립니다.
   바쁘고 머리아픈 일상에 치여 잊고 지냈던 소중한 나에 대한 안부를 물어보세요-
 
-3. 개발 환경
+2. 개발 환경
    Programming Language : Java JDK 17, JavaScript
    DBMS : Oracle xe 11g
    Markup Language : Html
