@@ -18,5 +18,9 @@
    Version Control System : Github, ERDCloud
 
 3. 메뉴구성
-   메인 :
+   메인
+   개인정보수정
+   편지발송목록
+
+
    
