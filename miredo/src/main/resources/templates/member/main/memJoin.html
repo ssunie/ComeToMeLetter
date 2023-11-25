@@ -43,6 +43,11 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     background-color: burlywood;
 }
 
+.go-main {
+    color: white!important;
+    text-underline-offset:unset;
+}
+
 .nav-link {
     color: white!important;
 }
@@ -72,7 +77,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header class="mb-auto">
                 <div>
-                <h3 class="float-md-start mb-0">MIREDO</h3>
+                <h3 class="float-md-start mb-0"><a class="go-main" href="memMain.html">MIREDO</a></h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link active" aria-current="page" href="#">Send</a>
                     <a class="nav-link" href="#">History</a>
@@ -82,11 +87,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             </header>
             
             <main class="px-3 m-content">
-                <h1>미래도 : 미래의 나에게 보내는 편지</h1>
-                <p class="lead">미래의 나는 어떤 하루를 보내고 있을까? 잊고 지낸 나에게 편지를 보내 안부를 물어보세요.</p>
-                <p class="lead">
-                <a href="memJoin.html" class="ent-btn btn btn-outline-light">ENTER</a>
-                </p>
+                
             </main>
             
             <footer class="m-footer mt-auto text-white-50">
