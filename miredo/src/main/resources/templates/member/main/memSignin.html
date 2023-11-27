@@ -81,20 +81,37 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     color: burlywood!important;
 }
 
-.login-btn {
+.signin-btn {
     background-color: burlywood!important;
     border-color: white!important;
 }
 
-.login-btn:hover {
+.signin-btn:hover {
     background-color: white!important;
     border-color: burlywood!important;
     color: burlywood!important;
 }
 
-.login-btn:focus {
+.signin-btn:focus {
     box-shadow: none!important;
 }
+
+.join-btn {
+    background-color: #AB7942!important;
+    border-color: #AB7942!important;
+    color: white!important;
+}
+
+.join-btn:hover {
+    background-color: white!important;
+    border-color: burlywood!important;
+    color: burlywood!important;
+}
+
+.join-btn:focus {
+    box-shadow: none!important;
+}
+
 
 
 </style>
@@ -110,44 +127,43 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
         <body class="b-main d-flex h-100 text-center text-white">
         
             <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <header class="mb-auto">
-                <div>
-                <h3 class="float-md-start mb-0"><a class="m-logo" href="memMain.html"><img class="m-logo" src="miredo_logo.png"></a></h3>
-                <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link active" aria-current="page" href="#">Send</a>
-                    <a class="nav-link" href="#">History</a>
-                    <a class="nav-link" href="#">Mypage</a>
-                </nav>
-                </div>
-            </header>
+                <header class="mb-auto">
+                    <div>
+                    <h3 class="float-md-start mb-0"><a class="m-logo" href="memMain.html"><img class="m-logo" src="miredo_logo.png"></a></h3>
+                    <nav class="nav nav-masthead justify-content-center float-md-end">
+                        <a class="nav-link active" aria-current="page" href="#">Send</a>
+                        <a class="nav-link" href="#">History</a>
+                        <a class="nav-link" href="#">Mypage</a>
+                    </nav>
+                    </div>
+                </header>
             
                         
-            <main class="form-signin">
-                <form>
+                <main class="form-signin">
+                    <form>
 
-                <h1 class="h3 mb-3 fw-normal">Login</h1>
-            
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
-            
-                <div class="checkbox mb-3">
-                    <label>
-                    <input class="checkbox" type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="login-btn w-100 btn btn-lg btn-primary" type="submit">Login</button>
-                <a><button class="join-btn w-100 btn btn-lg btn-primary" type="button">Login</button></a>
-
+                    <h1 class="h3 mb-3 fw-normal">From Me To Me, MIREDO</h1>
                 
-                </form>
-            </main>
-  
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                
+                    <div class="checkbox mb-3">
+                        <label>
+                        <input class="checkbox" type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="signin-btn w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+                    <a href="memJoin.html"><button class="join-btn w-100 btn btn-lg btn-primary" type="button">Join MIREDO</button></a>
+
+                    
+                    </form>
+                </main>
             
             </div>
             
