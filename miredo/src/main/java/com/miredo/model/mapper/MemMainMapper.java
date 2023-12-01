@@ -1,4 +1,4 @@
-package com.miredo.mapper;
+package com.miredo.model.mapper;
 
 public class MemMainMapper {
 	
