@@ -1,4 +1,4 @@
-package com.miredo.member.main.controller;
+package com.miredo.controller;
 
 public class MemMainController {
 
