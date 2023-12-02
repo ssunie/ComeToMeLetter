@@ -5,10 +5,6 @@
     <select id="SelectAllList" resultType="hashmap">
        SELECT * FROM TB_USER
     </select>
-    
-    <select id="SelectList" resultType="hashmap">
-       SELECT * FROM TB_USER
-    </select>
-    
+   
  
 </mapper>
