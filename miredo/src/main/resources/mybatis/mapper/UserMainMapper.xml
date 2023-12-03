@@ -6,5 +6,46 @@
        SELECT * FROM TB_USER
     </select>
    
+    <insert id="insertUser">
+    	INSERT 
+    		INTO TB_USER
+    		(
+    		 USER_ID
+			,USER_PASSWORD
+			,USER_NAME
+			,EMAIL
+			,ACTIVE_YN
+    		)
+    		VALUES
+    		(
+    		  #{id}
+    		 ,#{password}
+    		 ,#{name}
+    		 ,#{email}
+    		 ,#{activeYn}
+    		)
+    </insert>
+    
+    <update id="updateUser">
+    	UPDATE TB_USER
+    	   SET
+    	   	   USER_ID = #{id}
+			  ,USER_NAME = #{name}
+			  ,EMAIL = #{email} 
+			  ,ACTIVE_YN = #{activeYn}
+		 WHERE USER_ID = #{id}
+    </update>
+    
+    <update id="updatePwd">
+    	UPDATE TB_USER
+    	   SET USER_PASSWORD = #{password}
+    	 WHERE USER_ID = #{id}
+    </update>
+    
+    <update id="deleteUser">
+    	UPDATE TB_USER
+    	   SET ACTIVE_YN = #{activeYn}
+    	 WHERE USER_ID = #{id}
+    </update>
  
 </mapper>
