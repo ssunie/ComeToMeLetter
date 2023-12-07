@@ -6,5 +6,6 @@ import java.util.Map;
 public interface UserMainService {
 	
 	public List<Map<String, Object>> SelectAllList() throws Exception;
+	
 
 }
