@@ -4,6 +4,7 @@
 package com.miredo.model.mapper;
 
 import java.util.*;
+import com.miredo.security.CustomUserDetails;
 
 import org.apache.ibatis.annotations.Mapper;
 /**
@@ -17,5 +18,7 @@ public interface UserMainMapper {
 	
 	//select * from Miredo_Table
 	public List<Map<String, Object>> SelectAllList() throws Exception;
+	
+	public CustomUserDetails loginID(String ID);
 
 }
