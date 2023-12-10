@@ -3,7 +3,8 @@
 <mapper namespace="com.miredo.model.mapper.UserMainMapper">
 
 <select id="loginID" resultType="com.miredo.security.CustomUserDetails">
-	select * from TB_USER where USER_NAME=#{username}
+	SELECT * FROM TB_USER 
+			WHERE USER_NAME = #{username}
 </select>
 
 </mapper>
