@@ -7,5 +7,7 @@ public interface UserMainService {
 	
 	public List<Map<String, Object>> SelectAllList() throws Exception;
 	
+	String findIdByName(String name, String email);
+
 
 }
