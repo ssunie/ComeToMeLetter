@@ -12,12 +12,17 @@ import com.miredo.model.mapper.UserMainMapper;
 public class UserMainServiceImpl implements UserMainService {
 	
 	@Autowired
-	UserMainMapper usermainMapper;
+	UserMainMapper userMainMapper;
 	
 	@Autowired
 	public List<Map<String, Object>> SelectAllList() throws Exception {
 		
-		return usermainMapper.SelectAllList();
+		return userMainMapper.SelectAllList();
+	}
+	
+	@Override
+	public String findIdByName(String name, String email) {
+		return userMainMapper.findIdByName(name, email);
 	}
 
 }
