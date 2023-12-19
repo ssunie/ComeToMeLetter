@@ -6,8 +6,10 @@
        SELECT * FROM TB_USER
     </select>
    
-		<select id="findUserId">
-			SELECT USER_ID FROM TB_USER
+	<select id="findIdByName" resultType="String">
+		SELECT USER_ID 
+		  FROM TB_USER
+		 WHERE USER_NAME = #{ name }
     </select>
 
     <insert id="insertUser">

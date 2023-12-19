@@ -20,5 +20,8 @@ public interface UserMainMapper {
 	public List<Map<String, Object>> SelectAllList() throws Exception;
 	
 	public CustomUserDetails loginID(String ID);
+	
+	// 아이디 찾기
+	String findIdByName(String name, String email);
 
 }
