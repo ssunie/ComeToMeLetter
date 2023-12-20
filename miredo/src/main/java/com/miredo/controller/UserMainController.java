@@ -40,16 +40,25 @@ public class UserMainController {
 		UserMainController.passwordEncoder = passwordEncoder;
 	}
 	
+	//로그인
 	@GetMapping("/login")
 	public String userLogin() {
 		return "/user/login";
 	}
 	
+	//로그인실패
 	@PostMapping("/login")
 	public void loginForm(@RequestParam(required=false) String errorMessage, Model model) {
 		model.addAttribute("errorMessage", errorMessage);
 	}
 	
+	//아이디찾기
+	@GetMapping("/forgotId")
+	public String forgetId() {
+		return "/member/forgotId";
+	}
+	
+	//아이디찾기_이름
 	@ResponseBody
 	@PostMapping("/forgotId")
 	public String findIdByName(@RequestParam("name") String name, @RequestParam("email") String email) {
@@ -73,5 +82,11 @@ public class UserMainController {
 		}
 		
 		return resultId;
+	}
+	
+	//비밀번호찾기
+	@GetMapping("/forgotPwd")
+	public String forgetPwd() {
+		return "/member/forgotPwd";
 	}
 }
