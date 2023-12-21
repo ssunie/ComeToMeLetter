@@ -1,7 +1,17 @@
 package com.miredo.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+import java.util.Random;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.miredo.model.dto.UserDTO;
 import com.miredo.service.UserMainService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -88,5 +99,141 @@ public class UserMainController {
 	@GetMapping("/forgotPwd")
 	public String forgetPwd() {
 		return "/member/forgotPwd";
+	}
+	
+	//새로운비밀번호
+	@GetMapping("/newPwd")
+	public String newPwdForm() {
+		return "/member/newPwd";
+	}
+	
+	//비밀번호찾기후변경
+	@ResponseBody
+	@PostMapping("/newPwd")
+	public int newPwd(UserDTO user) {
+		
+		String encodePwd = pwd_encoder(user.getPassword());
+		user.setPassword(encodePwd);
+		
+		int result = userMainService.updatePassword(user);
+		
+		return result;
+	}
+	
+	//비밀번호 변경
+	@ResponseBody
+	@PostMapping("/updatePwd")
+	public int updatePwd(String pwd, String pwd2, String id) {
+
+		int result = 0;
+		
+		String beforePwd = userMainService.findPwdById(id);
+		
+		if(passwordEncoder.matches(pwd, beforePwd)){
+			
+			UserDTO member = new UserDTO();
+			String encodePwd = pwd_encoder(pwd2);
+			member.setId(id);
+			member.setPassword(encodePwd);
+			
+			log.info("변경한 비밀번호 확인 : {} ", encodePwd);
+			
+			result = userMainService.updatePassword(member);
+			
+		} 
+		
+		return result;
+	}
+	
+	
+	// 암호화 메소드
+	public static String pwd_encoder(String pwd) {
+		
+		String encoderPwd = passwordEncoder.encode(pwd);
+		
+		return encoderPwd;
+	}
+	
+	//비밀번호 찾기 이메일 전송 메소드
+	@ResponseBody 
+	@PostMapping("/authPwd")
+	public int findPsssword(@RequestParam("name") String name, 
+							@RequestParam("email") String email, 
+							@RequestParam("id") String id) throws UnsupportedEncodingException, MessagingException {
+		
+		int result = 0;
+		
+		UserDTO user = new UserDTO();
+		user.setId(id);
+		user.setName(name);
+		user.setEmail(email);
+		
+		UserDTO findMember = userMainService.findPwd(user);
+		log.info("findMember 확인 : {}" , findMember);
+		
+		Random r = new Random();
+		int num = r.nextInt(999999); // 랜덤난수설정
+		
+		if(findMember != null) 
+			
+			result = sendMail(findMember.getEmail(), num); // 이메일 발송 메소드 호출 
+		
+		return result;
+	}
+	
+	public int sendMail(String memberEmail, int num) throws UnsupportedEncodingException, MessagingException {
+		int result = 0;
+				
+		String from ="sooandsooand@gmail.com";
+		String fromName = "Miredo";
+		String to = memberEmail;
+		
+		String host = "smtp.gmail.com";
+		int port = 587;
+		
+		String smtp_username = "sooandsooand@gmail.com";
+		String smtp_password = "miredotest1234";
+		 
+		String title = "[SCON] 비밀번호변경 인증 이메일 입니다";
+		String body = String.join(
+		        System.getProperty("line.separator"),
+		        "<h1>[SCON] 비밀번호 찾기(변경)</h1>",
+		        System.getProperty("line.separator"),
+		        "<h3>인증번호는 " + num + "입니다.</h3>",
+		        "<p>비밀번호 찾기 페이지에서 인증번호를 입력해주세요.</p>."
+		    );
+		
+		 Properties props = System.getProperties();
+	        props.put("mail.transport.protocol", "smtp");
+	        props.put("mail.smtp.port", port); 
+	        props.put("mail.smtp.starttls.enable", "true");
+	        props.put("mail.smtp.auth", "true");
+	        Session session = Session.getDefaultInstance(props);
+	        MimeMessage msg = new MimeMessage(session);
+	        
+			msg.setFrom(new InternetAddress(from, fromName));
+	        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
+	        msg.setSubject(title);
+	        msg.setContent(body, "text/html;charset=euc-kr");
+	        
+	        Transport transport = session.getTransport();
+	        
+	        try {
+	            log.info("Sending...");
+	            
+	            transport.connect(host, smtp_username, smtp_password);
+	            transport.sendMessage(msg, msg.getAllRecipients());
+	            
+	            log.info("Sending success!");
+	            result = num; // 결과로 인증 번호를 반환
+	            
+	        } catch (Exception ex) {
+	            ex.printStackTrace();
+	            result = -1; //이메일 전송 실패시 결과 -1 반환
+	            
+	        } finally {
+	            transport.close();
+	        }
+			return result;
 	}
 }
