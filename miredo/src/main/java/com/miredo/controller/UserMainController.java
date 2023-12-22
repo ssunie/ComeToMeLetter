@@ -194,10 +194,10 @@ public class UserMainController {
 		String smtp_username = "sooandsooand@gmail.com";
 		String smtp_password = "miredotest1234";
 		 
-		String title = "[SCON] 비밀번호변경 인증 이메일 입니다";
+		String title = "[MIREDO] 비밀번호변경 인증 이메일 입니다";
 		String body = String.join(
 		        System.getProperty("line.separator"),
-		        "<h1>[SCON] 비밀번호 찾기(변경)</h1>",
+		        "<h1>[MIREDO] 비밀번호 찾기(변경)</h1>",
 		        System.getProperty("line.separator"),
 		        "<h3>인증번호는 " + num + "입니다.</h3>",
 		        "<p>비밀번호 찾기 페이지에서 인증번호를 입력해주세요.</p>."

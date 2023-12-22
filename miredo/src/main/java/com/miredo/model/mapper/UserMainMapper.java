@@ -4,6 +4,8 @@
 package com.miredo.model.mapper;
 
 import java.util.*;
+
+import com.miredo.model.dto.UserDTO;
 import com.miredo.security.CustomUserDetails;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -23,5 +25,7 @@ public interface UserMainMapper {
 	
 	// 아이디 찾기
 	String findIdByName(String name, String email);
+	
+	String findPwd(UserDTO member);
 
 }
