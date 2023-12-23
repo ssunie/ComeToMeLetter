@@ -47,6 +47,15 @@
     	   SET USER_PASSWORD = #{password}
     	 WHERE USER_ID = #{id}
     </update>
+
+		<select id="findPwd" resultMap="userResultMap">
+		SELECT 
+		<include refid="userColumn"/>
+		WHERE A.USER_ID = #{ id }
+		  AND A.USER_NAME = #{ name }
+		  AND A.EMAIL = #{ email }	
+  	</select>
+	
     
     <update id="deleteUser">
     	UPDATE TB_USER
