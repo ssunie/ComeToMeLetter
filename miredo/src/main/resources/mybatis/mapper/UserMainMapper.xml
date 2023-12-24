@@ -49,11 +49,11 @@
     </update>
 
 		<select id="findPwd" resultMap="userResultMap">
-		SELECT 
-		<include refid="userColumn"/>
-		WHERE A.USER_ID = #{ id }
-		  AND A.USER_NAME = #{ name }
-		  AND A.EMAIL = #{ email }	
+		SELECT USER_PASSWORD
+			FROM TB_USER
+		 WHERE USER_ID = #{ id }
+		   AND USER_NAME = #{ name }
+		   AND EMAIL = #{ email }	
   	</select>
 	
     
