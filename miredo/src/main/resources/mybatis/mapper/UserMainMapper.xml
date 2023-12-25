@@ -9,7 +9,7 @@
 	<select id="findIdByName" resultType="String">
 		SELECT USER_ID 
 		  FROM TB_USER
-		 WHERE USER_NAME = #{ name }
+		 WHERE USER_NAME = #{name}
     </select>
 
     <insert id="insertUser">
@@ -51,9 +51,9 @@
 		<select id="findPwd" resultMap="userResultMap">
 		SELECT USER_PASSWORD
 			FROM TB_USER
-		 WHERE USER_ID = #{ id }
-		   AND USER_NAME = #{ name }
-		   AND EMAIL = #{ email }	
+		 WHERE USER_ID = #{id}
+		   AND USER_NAME = #{name}
+		   AND EMAIL = #{email}	
   	</select>
 	
     
