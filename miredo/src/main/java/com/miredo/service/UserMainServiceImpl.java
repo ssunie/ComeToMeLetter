@@ -28,8 +28,19 @@ public class UserMainServiceImpl implements UserMainService {
 	
 	/* 비밀번호 찾기 - 가입된 회원 조회*/
 	@Override
-	public UserDTO findPwd(UserDTO member) {
-		return userMainMapper.findPwd(member);
+	public UserDTO findPwd(UserDTO user) {
+		return userMainMapper.findPwd(user);
 	}
+
+	@Override
+	public int updatePwd(UserDTO user) {
+		return userMainMapper.updatePwd(user);
+	}
+
+	@Override
+	public String findPwdById(String id) {
+		return userMainMapper.findPwdById(id);
+	};
+	
 
 }

@@ -11,9 +11,9 @@ public interface UserMainService {
 	
 	String findIdByName(String name, String email);
 
-    UserDTO findPwd(UserDTO user);
+	UserDTO findPwd(UserDTO user);
 
-	int updatePassword(UserDTO user);
+	int updatePwd(UserDTO user);
 
 	String findPwdById(String id);
 	

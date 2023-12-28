@@ -115,7 +115,7 @@ public class UserMainController {
 		String encodePwd = pwd_encoder(user.getPassword());
 		user.setPassword(encodePwd);
 		
-		int result = userMainService.updatePassword(user);
+		int result = userMainService.updatePwd(user);
 		
 		return result;
 	}
@@ -138,7 +138,7 @@ public class UserMainController {
 			
 			log.info("변경한 비밀번호 확인 : {} ", encodePwd);
 			
-			result = userMainService.updatePassword(member);
+			result = userMainService.updatePwd(member);
 			
 		} 
 		

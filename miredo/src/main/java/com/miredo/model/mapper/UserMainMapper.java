@@ -26,9 +26,13 @@ public interface UserMainMapper {
 	// 아이디 찾기
 	String findIdByName(String name, String email);
 	
-	String findPwd(UserDTO user);
+	//비밀번호 찾기
+	UserDTO findPwd(UserDTO user);
 
 	//비밀번호 변경
 	int updatePwd(UserDTO user);
+	
+	//현재 비밀번호 확인
+	String findPwdById(String id);
 
 }
