@@ -42,5 +42,11 @@ public class UserMainServiceImpl implements UserMainService {
 		return userMainMapper.findPwdById(id);
 	};
 	
+	/* 회원 삭제 */
+	@Override
+	public int deleteUser(String id, String active) {
+		return userMainMapper.deleteUser(id, active);
+	}
+	
 
 }
