@@ -1,6 +1,7 @@
 package com.miredo.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -94,6 +95,16 @@ public class UserMainController {
 		
 		return resultId;
 	}
+	
+	//아이디 중복 체크
+		@ResponseBody
+		@PostMapping("/checkId")
+		public int checkId(UserDTO user) {
+			
+			int result = userMainService.checkId(user);
+
+			return result;
+		}
 	
 	//비밀번호찾기
 	@GetMapping("/forgotPwd")
@@ -236,4 +247,23 @@ public class UserMainController {
 	        }
 			return result;
 	}
+	
+	//계정 삭제 
+	@ResponseBody
+	@PostMapping("/deleteUser")
+	public Map<String, Object> deleteUser(@RequestParam("id") String id, @RequestParam("active") String active){
+		
+		int result = userMainService.deleteUser(id, active);
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		if(result > 0) {
+			map.put("message", "삭제 처리했습니다.");
+			
+		} else {
+			map.put("message", "삭제 실패하였습니다.");
+		}
+		return map;
+	}
+	
 }
