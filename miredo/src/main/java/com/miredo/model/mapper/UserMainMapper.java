@@ -26,6 +26,9 @@ public interface UserMainMapper {
 	// 아이디 찾기
 	String findIdByName(String name, String email);
 	
+	// 아이디로 회원 찾기
+	String findUserById(String id);
+	
 	//비밀번호 찾기
 	UserDTO findPwd(UserDTO user);
 
