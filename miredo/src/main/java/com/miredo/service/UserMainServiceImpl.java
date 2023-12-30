@@ -12,13 +12,30 @@ import com.miredo.model.mapper.UserMainMapper;
 @Service
 public class UserMainServiceImpl implements UserMainService {
 	
-	@Autowired
-	UserMainMapper userMainMapper;
+	private UserMainMapper userMainMapper;
 	
 	@Autowired
 	public List<Map<String, Object>> SelectAllList() throws Exception {
 		
 		return userMainMapper.SelectAllList();
+	}
+	
+	@Autowired
+	public UserServiceImpl(UserMainMapper userMainMapper) {
+		this.userMainMapper = userMainMapper;
+	}
+	
+	/* 로그인 */
+	@Override
+	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+		
+		UserDTO member = UserMainMapper.findMemberById(name);
+		/* null 값이 없게 하기 위해 조회 된 값이 없을 시 빈 객체 */
+		if(member == null) member = new MemberDTO();
+		
+		log.info("로그인 유저 : {}", member);
+		
+		
 	}
 	
 	@Override
