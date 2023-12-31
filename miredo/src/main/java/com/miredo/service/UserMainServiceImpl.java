@@ -1,9 +1,12 @@
 package com.miredo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.miredo.model.dto.UserDTO;
@@ -29,11 +32,18 @@ public class UserMainServiceImpl implements UserMainService {
 	@Override
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 		
-		UserDTO member = UserMainMapper.findMemberById(name);
+		UserDTO user = UserMainMapper.findUserById(name);
 		/* null 값이 없게 하기 위해 조회 된 값이 없을 시 빈 객체 */
-		if(member == null) member = new MemberDTO();
+		if(user == null) user = new UserDTO();
 		
-		log.info("로그인 유저 : {}", member);
+		log.info("로그인 유저 : {}", user);
+		
+
+		/* User 객체에 담기지 않는 추가 정보를 User 객체를 extends한 UserImpl에 담아서 리턴한다. */
+		UserImpl user = new UserImpl(user.getId(), user.getPassword());
+		user.setDetails(user);
+		
+		return user;
 		
 		
 	}
