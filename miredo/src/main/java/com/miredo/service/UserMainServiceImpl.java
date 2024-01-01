@@ -38,11 +38,6 @@ public class UserMainServiceImpl implements UserMainService {
 		
 		log.info("로그인 유저 : {}", user);
 		
-
-		/* User 객체에 담기지 않는 추가 정보를 User 객체를 extends한 UserImpl에 담아서 리턴한다. */
-		UserImpl user = new UserImpl(user.getId(), user.getPassword());
-		user.setDetails(user);
-		
 		return user;
 		
 		
