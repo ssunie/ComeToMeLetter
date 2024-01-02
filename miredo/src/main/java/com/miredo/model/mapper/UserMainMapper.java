@@ -23,11 +23,12 @@ public interface UserMainMapper {
 	
 	public CustomUserDetails loginID(String ID);
 	
+	//회원 아이디로 조회
+	UserDTO findUserById(String name);
+	
 	// 아이디 찾기
 	String findIdByName(String name, String email);
 	
-	// 아이디로 회원 찾기
-	String findUserById(String id);
 	
 	//비밀번호 찾기
 	UserDTO findPwd(UserDTO user);
