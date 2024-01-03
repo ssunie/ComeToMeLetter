@@ -21,6 +21,7 @@ public interface UserMainMapper {
 	//select * from Miredo_Table
 	public List<Map<String, Object>> SelectAllList() throws Exception;
 	
+	//java security
 	public CustomUserDetails loginID(String ID);
 	
 	//회원 아이디로 조회
@@ -28,7 +29,6 @@ public interface UserMainMapper {
 	
 	// 아이디 찾기
 	String findIdByName(String name, String email);
-	
 	
 	//비밀번호 찾기
 	UserDTO findPwd(UserDTO user);
