@@ -18,9 +18,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMainMapper {
 	
-	//select * from Miredo_Table
-	public List<Map<String, Object>> SelectAllList() throws Exception;
-	
 	//java security
 	public CustomUserDetails loginID(String ID);
 	
@@ -30,6 +27,9 @@ public interface UserMainMapper {
 	// 아이디 찾기
 	String findIdByName(String name, String email);
 	
+	// 아이디 중복 체크
+	int checkId(UserDTO user);
+	
 	//비밀번호 찾기
 	UserDTO findPwd(UserDTO user);
 
@@ -38,6 +38,12 @@ public interface UserMainMapper {
 	
 	//현재 비밀번호 확인
 	String findPwdById(String id);
+	
+	//회원 등록
+	int insertUser(UserDTO user);
+	
+	//회원 정보 수정
+	int updateUser(UserDTO user);
 	
 	//회원 삭제
 	int deleteUser(String id, String active);
