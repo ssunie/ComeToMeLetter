@@ -34,18 +34,6 @@ public class UserMainController {
 	private UserMainService userMainService;
 	private static BCryptPasswordEncoder passwordEncoder;
 	
-	//@RequestMapping(value="memMain")
-	public ModelAndView AllListView(Map<String, Object> map) throws Exception{
-		ModelAndView mav = new ModelAndView();
-		
-		List<Map<String, Object>> AllList = userMainService.SelectAllList();
-		        
-        mav.addObject("Alllist", AllList);
-        mav.setViewName("memMain");
-        return mav;
-		
-	}
-	
 	@Autowired
 	public UserMainController(UserMainService userMainService, BCryptPasswordEncoder passwordEncoder) {
 		this.userMainService = userMainService;
