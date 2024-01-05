@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.miredo.model.dto.UserDTO;
+import com.miredo.model.dto.UserImpl;
 import com.miredo.model.mapper.UserMainMapper;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,19 +33,38 @@ public class UserMainServiceImpl implements UserMainService {
 			this.userMainMapper = userMainMapper;
 	}
 	
-//	/* 로그인 */
-//	@Override
-//	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-//		
-//		UserDTO user = userMainMapper.findUserById(name);
-//		/* null 값이 없게 하기 위해 조회 된 값이 없을 시 빈 객체 */
-//		if(user == null) user = new UserDTO();
-//		
-//		log.info("로그인 유저 : {}", user);
-//		
-//		return user;
-//		
-//	}
+	/* 로그인 */
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		UserDTO user = userMainMapper.findUserById(username);
+		/* null 값이 없게 하기 위해 조회 된 값이 없을 시 빈 객체 */
+		if(user == null) user = new UserDTO();
+		
+		log.info("로그인 유저 : {}", user);
+		
+		/* 권한 리스트 */
+		List<GrantedAuthority> authorities = new ArrayList<>();
+		
+		if(user != null && user.getMemberRoleList() != null) {
+			
+			for(MemberRoleDTO role : member.getMemberRoleList()) {
+				AuthorityDTO authority = role.getAuthority();
+				
+				if(authority != null) {
+					authorities.add(new SimpleGrantedAuthority(authority.getName()));
+				}
+			}
+		}
+		
+		log.info("로그인 권한 : {}", authorities);
+		
+		UserImpl member = new UserImpl(user.getId(), user.getPassword());
+		member.setDetails(member);
+		
+		return member;
+		
+	}
 
 	/* 아이디 찾기 */
 	@Override
