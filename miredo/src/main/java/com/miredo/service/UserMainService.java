@@ -1,9 +1,11 @@
 package com.miredo.service;
 
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.miredo.model.dto.UserDTO;
 
-public interface UserMainService {
+public interface UserMainService extends UserDetailsService {
 	
 	//회원 아이디로 조회
 	UserDTO findUserById(String name);
