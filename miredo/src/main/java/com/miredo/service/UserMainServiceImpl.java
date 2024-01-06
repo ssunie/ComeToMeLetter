@@ -43,24 +43,8 @@ public class UserMainServiceImpl implements UserMainService {
 		
 		log.info("로그인 유저 : {}", user);
 		
-		/* 권한 리스트 */
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		
-		if(user != null && user.getMemberRoleList() != null) {
-			
-			for(MemberRoleDTO role : member.getMemberRoleList()) {
-				AuthorityDTO authority = role.getAuthority();
-				
-				if(authority != null) {
-					authorities.add(new SimpleGrantedAuthority(authority.getName()));
-				}
-			}
-		}
-		
-		log.info("로그인 권한 : {}", authorities);
-		
 		UserImpl member = new UserImpl(user.getId(), user.getPassword());
-		member.setDetails(member);
+		member.setDetails(user);
 		
 		return member;
 		
