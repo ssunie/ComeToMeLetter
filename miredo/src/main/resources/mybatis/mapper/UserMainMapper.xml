@@ -3,9 +3,9 @@
 <mapper namespace="com.miredo.model.mapper.UserMainMapper">
  
 	<select id="findIdByName" resultType="String">
-		SELECT USER_ID 
-		  FROM TB_USER
-		 WHERE USER_NAME = #{name}
+	SELECT USER_ID 
+	  FROM TB_USER
+ 	 WHERE USER_NAME = #{name}
     </select>
 
     <insert id="insertUser">
@@ -28,6 +28,13 @@
     		)
     </insert>
     
+    <select id="checkId" resultType="int">
+    	SELECT
+    			COUNT(*)
+    	  FROM	TB_USER A
+    	 WHERE  A.USER_ID = #{ id }
+    </select>
+    
     <update id="updateUser">
     	UPDATE TB_USER
     	   SET
@@ -43,8 +50,14 @@
     	   SET USER_PASSWORD = #{password}
     	 WHERE USER_ID = #{id}
     </update>
+    
+    <select id="findPwdById" resultType="String">
+		SELECT USER_PASSWORD
+		  FROM TB_USER
+		WHERE USER_ID = #{ id }
+	</select>
 
-		<select id="findPwd" resultMap="userResultMap">
+	<select id="findPwd" resultMap="userResultMap">
 		SELECT USER_PASSWORD
 			FROM TB_USER
 		 WHERE USER_ID = #{id}
