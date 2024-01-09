@@ -28,6 +28,14 @@
     		)
     </insert>
     
+		<select id="findUserById" resultMap="userResultMap">
+		SELECT
+		<include refid="userColumn"/>
+		 WHERE A.USER_ID = #{ username }
+		</select>
+	
+
+
     <select id="checkId" resultType="int">
     	SELECT
     			COUNT(*)
