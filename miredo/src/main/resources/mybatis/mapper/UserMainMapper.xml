@@ -6,19 +6,19 @@
 	SELECT USER_ID 
 	  FROM TB_USER
  	 WHERE USER_NAME = #{name}
-    </select>
+  </select>
 
-    <insert id="insertUser">
-    	INSERT 
-    		INTO TB_USER
-    		(
-    		 USER_ID
-			,USER_PASSWORD
-			,USER_NAME
-			,EMAIL
-			,ACTIVE_YN
+  <insert id="insertUser">
+  INSERT 
+    INTO TB_USER
+    (
+	    	 USER_ID
+			  ,USER_PASSWORD
+		  	,USER_NAME
+		  	,EMAIL
+			  ,ACTIVE_YN
     		)
-    		VALUES
+    		 VALUES
     		(
     		  #{id}
     		 ,#{password}
