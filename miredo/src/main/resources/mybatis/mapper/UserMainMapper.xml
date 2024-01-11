@@ -31,16 +31,16 @@
 		<select id="findUserById" resultMap="userResultMap">
 		SELECT
 		<include refid="userColumn"/>
-		 WHERE A.USER_ID = #{ username }
+		WHERE A.USER_ID = #{ username }
 		</select>
 	
 
 
     <select id="checkId" resultType="int">
-    	SELECT
-    			COUNT(*)
-    	  FROM	TB_USER A
-    	 WHERE  A.USER_ID = #{ id }
+    SELECT
+     COUNT(*)
+    	FROM	TB_USER A
+     WHERE  A.USER_ID = #{ id }
     </select>
     
     <update id="updateUser">
