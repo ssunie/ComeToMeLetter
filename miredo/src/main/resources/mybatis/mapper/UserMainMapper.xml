@@ -3,50 +3,48 @@
 <mapper namespace="com.miredo.model.mapper.UserMainMapper">
  
 	<select id="findIdByName" resultType="String">
-	SELECT USER_ID 
-	  FROM TB_USER
- 	 WHERE USER_NAME = #{name}
+		SELECT USER_ID 
+		  FROM TB_USER
+	 	 WHERE USER_NAME = #{name}
   </select>
 
   <insert id="insertUser">
-  INSERT 
-    INTO TB_USER
-    (
-	    	 USER_ID
-			  ,USER_PASSWORD
-		  	,USER_NAME
-		  	,EMAIL
-			  ,ACTIVE_YN
-    		)
-    		 VALUES
-    		(
-    		  #{id}
-    		 ,#{password}
-    		 ,#{name}
-    		 ,#{email}
-    		 ,#{activeYn}
-    		)
+	  INSERT 
+	    INTO TB_USER
+	    (
+		    	 USER_ID
+				  ,USER_PASSWORD
+			  	,USER_NAME
+			  	,EMAIL
+				  ,ACTIVE_YN
+	    		)
+	    		 VALUES
+	    		(
+	    		  #{id}
+	    		 ,#{password}
+	    		 ,#{name}
+	    		 ,#{email}
+	    		 ,#{activeYn}
+	    		)
     </insert>
     
 		<select id="findUserById" resultMap="userResultMap">
-		SELECT
-		<include refid="userColumn"/>
-		WHERE A.USER_ID = #{ username }
+			SELECT
+			<include refid="userColumn"/>
+			WHERE A.USER_ID = #{ username }
 		</select>
 	
-
-
     <select id="checkId" resultType="int">
-    SELECT
-     COUNT(*)
-    	FROM	TB_USER A
-     WHERE  A.USER_ID = #{ id }
+	    SELECT
+	     COUNT(*)
+	    	FROM	TB_USER A
+	     WHERE  A.USER_ID = #{ id }
     </select>
     
     <update id="updateUser">
     	UPDATE TB_USER
     	   SET
-    	   	   USER_ID = #{id}
+    	   USER_ID = #{id}
 			  ,USER_NAME = #{name}
 			  ,EMAIL = #{email} 
 			  ,ACTIVE_YN = #{activeYn}
@@ -60,19 +58,19 @@
     </update>
     
     <select id="findPwdById" resultType="String">
-		SELECT USER_PASSWORD
-		  FROM TB_USER
-		WHERE USER_ID = #{ id }
-	</select>
+			SELECT USER_PASSWORD
+			  FROM TB_USER
+			 WHERE USER_ID = #{ id }
+		</select>
 
-	<select id="findPwd" resultMap="userResultMap">
-		SELECT USER_PASSWORD
-			FROM TB_USER
-		 WHERE USER_ID = #{id}
-		   AND USER_NAME = #{name}
-		   AND EMAIL = #{email}	
-  	</select>
-	
+		<select id="findPwd" resultMap="userResultMap">
+			SELECT USER_PASSWORD
+				FROM TB_USER
+			 WHERE USER_ID = #{id}
+			   AND USER_NAME = #{name}
+			   AND EMAIL = #{email}	
+	  </select>
+		
     
     <update id="deleteUser">
     	UPDATE TB_USER
