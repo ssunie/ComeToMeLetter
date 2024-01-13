@@ -11,7 +11,7 @@
   <insert id="insertUser">
 	  INSERT 
 	    INTO TB_USER
-	    (.
+	    (
 		    	 USER_ID
 				  ,USER_PASSWORD
 			  	,USER_NAME
