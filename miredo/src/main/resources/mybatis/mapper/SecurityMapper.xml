@@ -4,7 +4,7 @@
 
 <select id="loginID" resultType="com.miredo.security.CustomUserDetails">
 	SELECT * FROM TB_USER 
-			WHERE USER_NAME = #{username}
+			WHERE USER_NAME = #{name}
 </select>
 
 </mapper>
