@@ -79,7 +79,7 @@ public class UserMainServiceImpl implements UserMainService {
 	/* 현재 비밀번호 확인 */
 	@Override
 	public String findPwdById(String id) {
-		return userMainMapper.findPwdById(idd);
+		return userMainMapper.findPwdById(id);
 	};
 	
 	/* 회원가입 */
