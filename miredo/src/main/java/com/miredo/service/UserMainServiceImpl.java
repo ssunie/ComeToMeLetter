@@ -44,7 +44,7 @@ public class UserMainServiceImpl implements UserMainService {
 		log.info("로그인 유저 : {}", user);
 		
 		/* 권한 리스트 */
-		//List<GrantedAuthority> authorities = new ArrayList<>();
+	//	List<GrantedAuthority> authorities = new ArrayList<>();
 		
 		
 		UserImpl member = new UserImpl(user.getId(), user.getPassword(), authorities);
