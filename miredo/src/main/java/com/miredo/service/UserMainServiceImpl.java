@@ -54,11 +54,11 @@ public class UserMainServiceImpl implements UserMainService {
 		
 	}
 	
-	/* 아이디 찾기 */
-	@Override
-	public String findUserById(String name) {
-		return userMainMapper.findUserById(name);
-	}
+//	/* 아이디 찾기 */
+//	@Override
+//	public String findUserById(String name) {
+//		return userMainMapper.findU(name, email);
+//	}
 	
 
 	/* 아이디 찾기 */
