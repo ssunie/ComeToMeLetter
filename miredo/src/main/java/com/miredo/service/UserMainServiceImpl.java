@@ -36,21 +36,23 @@ public class UserMainServiceImpl implements UserMainService {
 	/* 로그인 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Account account = new Account();
+		account.setId(username);
 		
-		UserDTO user = userMainMapper.findUserById(username);
-		/* null 값이 없게 하기 위해 조회 된 값이 없을 시 빈 객체 */
-		if(user == null) user = new UserDTO();
-		
-		log.info("로그인 유저 : {}", user);
-		
-		/* 권한 리스트 */
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		
-		
-		UserImpl member = new UserImpl(user.getId(), user.getPassword(), authorities);
-		member.setDetails(user);
-		
-		return member;
+//		UserDTO user = userMainMapper.findUserById(username);
+//		/* null 값이 없게 하기 위해 조회 된 값이 없을 시 빈 객체 */
+//		if(user == null) user = new UserDTO();
+//		
+//		log.info("로그인 유저 : {}", user);
+//		
+//		/* 권한 리스트 */
+//		List<GrantedAuthority> authorities = new ArrayList<>();
+//		
+//		
+//		UserImpl member = new UserImpl(user.getId(), user.getPassword(), authorities);
+//		member.setDetails(user);
+//		
+//		return member;
 		
 	}
 	
