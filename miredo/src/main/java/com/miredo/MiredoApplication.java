@@ -17,7 +17,6 @@ public class MiredoApplication {
 		SpringApplication.run(MiredoApplication.class, args);
 	}
 	
-	 .
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
