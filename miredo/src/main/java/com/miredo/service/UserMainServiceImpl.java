@@ -38,6 +38,14 @@ public class UserMainServiceImpl implements UserMainService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserDTO user= new UserDTO();
 		user.setId(username);
+		user = userMainMapper.findUserById(user);
+		if(user != null) {
+			List<GrantedAuthority> autorities = new ArrayList();
+			return new member(user.getId(), user.getPassword(), authorities);
+			}
+		
+			return null;
+		}
 		
 //		UserDTO user = userMainMapper.findUserById(username);
 //		/* null 값이 없게 하기 위해 조회 된 값이 없을 시 ß빈 객체 */
