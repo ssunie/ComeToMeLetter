@@ -41,7 +41,7 @@ public class UserMainServiceImpl implements UserMainService {
 		user = userMainMapper.findUserById(user);
 		if(user != null) {
 			List<GrantedAuthority> autorities = new ArrayList();
-			return new member(user.getId(), user.getPassword(), authorities);
+			return new User(user.getId(), user.getPassword(), authorities);
 			}
 		
 			return null;
@@ -62,7 +62,7 @@ public class UserMainServiceImpl implements UserMainService {
 //		
 //		return member;
 		
-	}
+//	}
 	
 //	/* 아이디 찾기 */
 //	@Override
