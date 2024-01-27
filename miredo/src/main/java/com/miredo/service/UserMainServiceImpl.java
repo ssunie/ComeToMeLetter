@@ -38,10 +38,12 @@ public class UserMainServiceImpl implements UserMainService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserDTO user= new UserDTO();
 		user.setId(username);
-		user = userMainMapper.findUserById(user);
+		user = userMainMapper.findUserById(username);
 		if(user != null) {
-			List<GrantedAuthority> autorities = new ArrayList();
-			return new User(user.getId(), user.getPassword(), authorities);
+			List<GrantedAuthority> authorities = new ArrayList();
+			UserImpl member = new UserImpl(user.getId(), user.getPassword(), authorities);
+			return member;
+			
 			}
 		
 			return null;
