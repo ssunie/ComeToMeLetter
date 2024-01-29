@@ -66,7 +66,7 @@ public class UserMainServiceImpl implements UserMainService {
 		
 //	}
 	
-	/* 아이디 찾기 */
+	/* 회원 아이디로 조회 */
 	@Override
 	public UserDTO findUserById(String name) {
 		return userMainMapper.findUserById(name);
