@@ -1,4 +1,4 @@
-package com.miredo.controller;
+package com.miredo.user.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -21,8 +21,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.miredo.model.dto.UserDTO;
-import com.miredo.service.UserMainService;
+import com.miredo.user.model.dto.UserDTO;
+import com.miredo.user.model.service.UserMainService;
 
 import lombok.extern.slf4j.Slf4j;
 

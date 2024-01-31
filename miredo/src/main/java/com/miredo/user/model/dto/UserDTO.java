@@ -1,4 +1,4 @@
-package com.miredo.model.dto;
+package com.miredo.user.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

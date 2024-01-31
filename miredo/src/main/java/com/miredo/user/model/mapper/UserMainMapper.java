@@ -1,11 +1,25 @@
-package com.miredo.service;
+/**
+ * 
+ */
+package com.miredo.user.model.mapper;
 
+import java.util.*;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+import com.miredo.security.CustomUserDetails;
+import com.miredo.user.model.dto.UserDTO;
 
-import com.miredo.model.dto.UserDTO;
+import org.apache.ibatis.annotations.Mapper;
+/**
+ * @author 김수현
+ * @since 2023.12.01
+ *
+ */
 
-public interface UserMainService extends UserDetailsService {
+@Mapper
+public interface UserMainMapper {
+	
+	//java security
+	public CustomUserDetails loginID(String ID);
 	
 	//회원 아이디로 조회
 	UserDTO findUserById(String name);
@@ -33,6 +47,5 @@ public interface UserMainService extends UserDetailsService {
 	
 	//회원 삭제
 	int deleteUser(String id, String active);
-	
 
 }

@@ -13,10 +13,10 @@
 	    INTO TB_USER
 	    (
 		    	 USER_ID
-				  ,USER_PASSWORD
+				,USER_PASSWORD
 			  	,USER_NAME
 			  	,EMAIL
-				  ,ACTIVE_YN
+				,ACTIVE_YN
 	    		)
 	    		 VALUES
 	    		(
@@ -31,14 +31,14 @@
 		<select id="findUserById" resultMap="userResultMap">
 			SELECT
 			<include refid="userColumn"/>
-			WHERE A.USER_ID = #{ username }
+			WHERE A.USER_ID = #{id}
 		</select>
 	
     <select id="checkId" resultType="int">
 	    SELECT
 	     COUNT(*)
-	    	FROM	TB_USER A
-	     WHERE  A.USER_ID = #{ id }
+	      FROM	TB_USER A
+	     WHERE	A.USER_ID = #{id}
     </select>
     
     <update id="updateUser">
@@ -65,7 +65,7 @@
 
 		<select id="findPwd" resultMap="userResultMap">
 			SELECT USER_PASSWORD
-				FROM TB_USER
+			  FROM TB_USER
 			 WHERE USER_ID = #{id}
 			   AND USER_NAME = #{name}
 			   AND EMAIL = #{email}	

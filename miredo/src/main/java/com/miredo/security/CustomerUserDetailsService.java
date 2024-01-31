@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.miredo.model.mapper.UserMainMapper;
+import com.miredo.user.model.mapper.UserMainMapper;
 
 public class CustomerUserDetailsService implements UserDetailsService {
 	

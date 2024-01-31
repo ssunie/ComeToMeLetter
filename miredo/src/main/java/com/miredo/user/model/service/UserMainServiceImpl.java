@@ -1,4 +1,4 @@
-package com.miredo.service;
+package com.miredo.user.model.service;
 
 import java.util.ArrayList;
 import java.sql.SQLException;
@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.miredo.model.dto.UserDTO;
-import com.miredo.model.dto.UserImpl;
-import com.miredo.model.mapper.UserMainMapper;
+import com.miredo.user.model.dto.UserDTO;
+import com.miredo.user.model.dto.UserImpl;
+import com.miredo.user.model.mapper.UserMainMapper;
 
 import lombok.extern.slf4j.Slf4j;
 
