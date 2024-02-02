@@ -3,6 +3,7 @@
 <mapper namespace="com.miredo.model.mapper.UserMailMapper">
 
 	<resultMap type="com.miredo.model.dto.UserMailDTO" id="mailResultMap">
-		<id property="no" column="MAIL_NO"></id><id/>
+		<id property="no" column="MAIL_NO"></id>
+		<result property="userId" column="USER_ID"/>
 	</resultMap>
 </mapper>
