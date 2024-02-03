@@ -5,5 +5,7 @@
 	<resultMap type="com.miredo.model.dto.UserMailDTO" id="mailResultMap">
 		<id property="no" column="MAIL_NO"></id>
 		<result property="userId" column="USER_ID"/>
+		<result property="mailSendDate" column="MAIL_SEND_DATE"/>
+		<result property="mailTitle" column="MAIL_TITLE"/>
 	</resultMap>
 </mapper>
