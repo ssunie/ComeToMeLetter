@@ -11,7 +11,19 @@
 		<result property="mailContent" column="MAIL_CONTENT"/>
 		<result property="mailUpdate" column="MAIL_UPDATE"/>
 		<result property="mailDelete" column="MAIL_DELETE"/>
+		
+		<association property="user" resultMap="userResultMap"/> <!-- 회원 기본정보 -->
 	</resultMap>
+	
+	<resultMap type="com.miredo.model.dto.UserDTO" id="userResultMap">
+		<id property="id" column="USER_ID"></id>
+		<result property="password" column="USER_PASSWORD"/>
+		<result property="name" column="USER_NAME"/>
+		<result property="email" column="EMAIL"/>
+		<result property="activeYn" column="ACTIVE_YN"/>
+	</resultMap>
+	
+	
 	
 	
 </mapper>
