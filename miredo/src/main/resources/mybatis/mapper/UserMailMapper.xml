@@ -23,7 +23,8 @@
 		<result property="activeYn" column="ACTIVE_YN"/>
 	</resultMap>
 	
-	
+	<select id="selectMailList">
+  </select>
 	
 	
 </mapper>
