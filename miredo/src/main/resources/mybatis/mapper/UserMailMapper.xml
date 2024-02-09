@@ -23,8 +23,11 @@
 		<result property="activeYn" column="ACTIVE_YN"/>
 	</resultMap>
 	
-	<select id="selectMailList">
-  </select>
+	<select id="selectMailList" resultType="String">
+		SELECT MAIL_NO
+		  FROM TB_MAIL
+		 WHERE USER_NAME = #{name}
+  	</select>
 	
 	
 </mapper>
