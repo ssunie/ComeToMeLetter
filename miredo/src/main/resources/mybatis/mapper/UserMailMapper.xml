@@ -25,6 +25,20 @@
 	
 	<select id="selectMailList" resultType="String">
 		SELECT MAIL_NO
+			  ,MAIL_WRITE_DATE
+			  ,MAIL_SEND_DATE
+			  ,MAIL_TITLE
+			  ,MAIL_CONTENT
+		  FROM TB_MAIL
+		 WHERE USER_NAME = #{name}
+  	</select>
+  	
+  	<select id="selectSendMailList" resultType="String">
+  		SELECT MAIL_NO
+  		 	  ,MAIL_WRITE_DATE
+			  ,MAIL_SEND_DATE
+			  ,MAIL_TITLE
+			  ,MAIL_CONTENT
 		  FROM TB_MAIL
 		 WHERE USER_NAME = #{name}
   	</select>
