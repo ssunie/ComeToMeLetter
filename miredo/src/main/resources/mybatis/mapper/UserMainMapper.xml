@@ -43,8 +43,7 @@
     
     <update id="updateUser">
     	UPDATE TB_USER
-    	   SET
-    	   USER_ID = #{id}
+    	   SET USER_ID = #{id}
 			  ,USER_NAME = #{name}
 			  ,EMAIL = #{email} 
 			  ,ACTIVE_YN = #{activeYn}

@@ -44,8 +44,11 @@
   	</select>
 	
 	<update id="updateSendMailList">
-		UPDATE MAIL_TITLE
-			  ,MAIL_CONTENT
+		UPDATE FROM TB_MAIL
+		   SET MAIL_WRITE_DATE = #{mailWriteDate}
+		   	  ,MAIL_SEND_DATE = #{mailSendDate}
+			  ,MAIL_TITLE = #{mailTitle}
+			  ,MAIL_CONTENT = #{mailContent}
 		  FROM TB_MAIL
 	</update>
 	
