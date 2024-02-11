@@ -23,7 +23,7 @@
 		<result property="activeYn" column="ACTIVE_YN"/>
 	</resultMap>
 	
-	<select id="selectMailList" resultType="String">
+	<select id="selectReceivedMailList" resultType="String">
 		SELECT MAIL_NO
 			  ,MAIL_WRITE_DATE
 			  ,MAIL_SEND_DATE
@@ -43,5 +43,10 @@
 		 WHERE USER_NAME = #{name}
   	</select>
 	
+	<update id="updateSendMailList">
+		UPDATE MAIL_TITLE
+			  ,MAIL_CONTENT
+		  FROM TB_MAIL
+	</update>
 	
 </mapper>
