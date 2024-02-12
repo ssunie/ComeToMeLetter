@@ -49,7 +49,7 @@
 		   	  ,MAIL_SEND_DATE = #{mailSendDate}
 			  ,MAIL_TITLE = #{mailTitle}
 			  ,MAIL_CONTENT = #{mailContent}
-		  FROM TB_MAIL
+		 WHERE USER_NO = #{userNo}
 	</update>
 	
 </mapper>
