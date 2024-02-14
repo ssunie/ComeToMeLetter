@@ -23,16 +23,30 @@
 		<result property="activeYn" column="ACTIVE_YN"/>
 	</resultMap>
 	
-	<select id="selectReceivedMailList" resultType="String">
+	<!-- 받은 메일 목록 -->
+	<select id="selectReceivedMailList" resultMap="mailResultMap"> 
 		SELECT MAIL_NO
 			  ,MAIL_WRITE_DATE
 			  ,MAIL_SEND_DATE
 			  ,MAIL_TITLE
 			  ,MAIL_CONTENT
 		  FROM TB_MAIL
-		 WHERE USER_NAME = #{name}
+		 WHERE USER_ID = #{userId}
   	</select>
   	
+  	<!-- 받은 메일 상세 조회 -->
+  	<select id="selectRecivedMailDetail" resultMap="mailResultMap">
+  		SELECT 
+  				MAIL_NO
+  			   ,MAIL_WRITE_DATE
+  			   ,MAIL_SEND_DATE
+  			   ,MAIL_TITLE
+  			   ,MAIL_CONTENT
+  		  FROM TB MAIL
+  		 WHERE MAIL_NO = #{mailNo}
+  	</select> 
+  	
+  	<!-- 보낸 메일 목록 -->
   	<select id="selectSendMailList" resultType="String">
   		SELECT MAIL_NO
   		 	  ,MAIL_WRITE_DATE
@@ -43,7 +57,8 @@
 		 WHERE USER_NAME = #{name}
   	</select>
 	
-	<update id="updateSendMailList">
+	<!-- 보낼 메일 수정 -->
+	<update id="updateSendMail">
 		UPDATE FROM TB_MAIL
 		   SET MAIL_WRITE_DATE = #{mailWriteDate}
 		   	  ,MAIL_SEND_DATE = #{mailSendDate}
@@ -53,13 +68,15 @@
 		   AND MAIL_NO = #{mailNo}
 	</update>
 	
-	<update id="deleteRecivedMailList">
+	<!-- 받은 메일 삭제 -->
+	<update id="deleteRecivedMail">
 		UPDATE FROM TB_MAIL
 		   SET MAIL_DELETE = 'Y'
 		 WHERE MAIL_NO = #{mailNo}
 	</update>
 	
-	<update id="deleteSendMailList">
+	<!-- 보낸 메일 삭제 -->
+	<update id="deleteSendMail">
 		UPDATE FROM TB_MAIL
 		   SET MAIL_DELETE = 'Y'
 		 WHERE MAIL_NO = #{mailNo}
