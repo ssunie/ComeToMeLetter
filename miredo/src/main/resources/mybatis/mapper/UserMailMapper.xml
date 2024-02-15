@@ -9,6 +9,8 @@
 		<result property="mailSendDate" column="MAIL_SEND_DATE"/>
 		<result property="mailTitle" column="MAIL_TITLE"/>
 		<result property="mailContent" column="MAIL_CONTENT"/>
+		<result property="replyContent" column="REPLY_CONTENT"/>
+		<result property="replyWriteDate" column="REPLY_WRITE_DATE"/>
 		<result property="mailUpdate" column="MAIL_UPDATE"/>
 		<result property="mailDelete" column="MAIL_DELETE"/>
 		
