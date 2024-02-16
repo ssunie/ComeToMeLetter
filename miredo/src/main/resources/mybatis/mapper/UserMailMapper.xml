@@ -11,6 +11,7 @@
 		<result property="mailContent" column="MAIL_CONTENT"/>
 		<result property="replyContent" column="REPLY_CONTENT"/>
 		<result property="replyWriteDate" column="REPLY_WRITE_DATE"/>
+		<result property="replyDelete" column="REPLY_DELETE"/>
 		<result property="mailUpdate" column="MAIL_UPDATE"/>
 		<result property="mailDelete" column="MAIL_DELETE"/>
 		
