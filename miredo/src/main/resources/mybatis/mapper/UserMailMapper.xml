@@ -45,6 +45,7 @@
   			   ,MAIL_SEND_DATE
   			   ,MAIL_TITLE
   			   ,MAIL_CONTENT
+  			   ,REPLY_CONTENT
   		  FROM TB MAIL
   		 WHERE MAIL_NO = #{mailNo}
   	</select> 
