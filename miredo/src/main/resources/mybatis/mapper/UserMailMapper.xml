@@ -39,13 +39,12 @@
   	
   	<!-- 받은 메일 상세 조회 -->
   	<select id="selectRecivedMailDetail" resultMap="mailResultMap">
-  		SELECT 
-  				MAIL_NO
-  			   ,MAIL_WRITE_DATE
-  			   ,MAIL_SEND_DATE
-  			   ,MAIL_TITLE
-  			   ,MAIL_CONTENT
-  			   ,REPLY_CONTENT
+  		SELECT MAIL_NO
+  			  ,MAIL_WRITE_DATE
+  			  ,MAIL_SEND_DATE
+  			  ,MAIL_TITLE
+  		      ,MAIL_CONTENT
+  		      ,REPLY_CONTENT
   		  FROM TB MAIL
   		 WHERE MAIL_NO = #{mailNo}
   	</select> 
