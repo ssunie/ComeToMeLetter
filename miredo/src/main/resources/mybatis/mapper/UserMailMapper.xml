@@ -76,11 +76,13 @@
   		SELECT A.RPL_NO
   			  ,B.MAIL_NO
   			  ,A.RPL_DATE
+  			  ,A.RPL_TITLE
   			  ,A.RPL_CONTENT
   		      ,A.RPL_DELETE
   		  FROM TB_REPLY A
-  		  JOIN TB_MAIL B ON(A.RPL_NO = B.MAIL_NO)
-  		 WHERE MAIL_NO = #{mailNo}
+  		  JOIN TB_MAIL B ON(A.MAIL_NO = B.MAIL_NO)
+  		 WHERE A.RPL_DELETE = 'N'
+  		   AND B.MAIL_NO = #{mailNo}
   	</select> 
 	
 	<!-- 받은 메일 삭제 -->
