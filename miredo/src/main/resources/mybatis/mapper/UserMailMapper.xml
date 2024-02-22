@@ -16,6 +16,12 @@
 		<result property="mailDelete" column="MAIL_DELETE"/>
 		
 		<association property="user" resultMap="userResultMap"/> <!-- 회원 기본정보 -->
+		<collection property="reply" resultMap="replyResultMap"></collection>
+	</resultMap>
+	
+	<resultMap type="com.miredo.model.dto.ReplyDTO" id="replyResultMap">
+		<id property="replyNo" column="REPLY_NO"/>
+		<result property="no" column="MAIL_NO"/>
 	</resultMap>
 	
 	<resultMap type="com.miredo.model.dto.UserDTO" id="userResultMap">
