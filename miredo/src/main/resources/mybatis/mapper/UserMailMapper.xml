@@ -22,6 +22,8 @@
 	<resultMap type="com.miredo.model.dto.ReplyDTO" id="replyResultMap">
 		<id property="replyNo" column="REPLY_NO"/>
 		<result property="no" column="MAIL_NO"/>
+		<result property="mailSendDate" column="MAIL_SEND_DATE"/>
+		<result property="replyWriteDate" column="REPLY_WRITE_DATE"/>
 	</resultMap>
 	
 	<resultMap type="com.miredo.model.dto.UserDTO" id="userResultMap">
