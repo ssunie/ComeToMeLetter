@@ -82,6 +82,7 @@
 		   AND MAIL_NO = #{mailNo}
 	</update>
 	
+	
 	<!-- 답장 조회 -->
   	<select id="selectReplyDetail" resultMap="replyResultMap">
   		SELECT A.RPL_NO
@@ -95,6 +96,17 @@
   		 WHERE A.RPL_DELETE = 'N'
   		   AND B.MAIL_NO = #{mailNo}
   	</select> 
+	
+	<!-- 답장 수정 -->
+	<update id="updateReplyDetail">
+		UPDATE FROM TB_REPLY
+		   SET REPLY_WRITE_DATE = #{replyWriteDate}
+		   	  ,REPLY_SEND_DATE = #{replySendDate}
+			  ,MAIL_TITLE = #{mailTitle}
+			  ,MAIL_CONTENT = #{mailContent}
+		 WHERE USER_ID = #{userId}
+		   AND MAIL_NO = #{mailNo}
+	</update>
 	
 	<!-- 받은 메일 삭제 -->
 	<update id="deleteRecivedMail">
