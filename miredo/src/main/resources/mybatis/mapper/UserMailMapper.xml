@@ -2,16 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.miredo.model.mapper.UserMailMapper">
 
-	<resultMap type="com.miredo.model.dto.UserMailDTO" id="mailResultMap">
+	<resultMap id="mailResultMap" type="com.miredo.model.dto.UserMailDTO">
 		<id property="no" column="MAIL_NO"></id>
 		<result property="userId" column="USER_ID"/>
 		<result property="mailWriteDate" column="MAIL_WRITE_DATE"/>
 		<result property="mailSendDate" column="MAIL_SEND_DATE"/>
 		<result property="mailTitle" column="MAIL_TITLE"/>
 		<result property="mailContent" column="MAIL_CONTENT"/>
-		<result property="replyContent" column="REPLY_CONTENT"/>
-		<result property="replyWriteDate" column="REPLY_WRITE_DATE"/>
-		<result property="replyDelete" column="REPLY_DELETE"/>
 		<result property="mailUpdate" column="MAIL_UPDATE"/>
 		<result property="mailDelete" column="MAIL_DELETE"/>
 		
@@ -19,17 +16,17 @@
 		<collection property="reply" resultMap="replyResultMap"></collection>
 	</resultMap>
 	
-	<resultMap type="com.miredo.model.dto.ReplyDTO" id="replyResultMap">
-		<id property="replyNo" column="REPLY_NO"/>
+	<resultMap id="replyResultMap" type="com.miredo.model.dto.ReplyDTO">
+		<id property="rplNo" column="REPLY_NO"/>
 		<result property="no" column="MAIL_NO"/>
 		<result property="userId" column="USER_ID"/>
-		<result property="replyWriteDate" column="REPLY_WRITE_DATE"/>
-		<result property="replyContent" column="REPLY_CONTENT"/>
-		<result property="replyUpdate" column="REPLY_UPDATE"/>
-		<result property="replyDelete" column="REPLY_DELETE"/>
+		<result property="rplDate" column="RPL_DATE"/>
+		<result property="rplContent" column="REPLY_CONTENT"/>
+		<result property="rplUpdate" column="REPLY_UPDATE"/>
+		<result property="rplDelete" column="REPLY_DELETE"/>
 	</resultMap>
 	
-	<resultMap type="com.miredo.model.dto.UserDTO" id="userResultMap">
+	<resultMap id="userResultMap" type="com.miredo.model.dto.UserDTO">
 		<id property="id" column="USER_ID"></id>
 		<result property="password" column="USER_PASSWORD"/>
 		<result property="name" column="USER_NAME"/>
@@ -84,11 +81,10 @@
 	
 	
 	<!-- 답장 조회 -->
-  	<select id="selectReplyDetail" resultMap="replyResultMap">
+  	<select id="selectReply" resultMap="replyResultMap">
   		SELECT A.RPL_NO
   			  ,B.MAIL_NO
   			  ,A.RPL_DATE
-  			  ,A.RPL_TITLE
   			  ,A.RPL_CONTENT
   		      ,A.RPL_DELETE
   		  FROM TB_REPLY A
@@ -98,14 +94,11 @@
   	</select> 
 	
 	<!-- 답장 수정 -->
-	<update id="updateReplyDetail">
+	<update id="modifyReply">
 		UPDATE FROM TB_REPLY
-		   SET REPLY_WRITE_DATE = #{replyWriteDate}
-		   	  ,REPLY_SEND_DATE = #{replySendDate}
-			  ,MAIL_TITLE = #{mailTitle}
-			  ,MAIL_CONTENT = #{mailContent}
-		 WHERE USER_ID = #{userId}
-		   AND MAIL_NO = #{mailNo}
+		   SET RPL_DATE = #{rplDate}
+			  ,RPL_CONTENT = #{rplContent}
+		 WHERE RPL_NO = #{rplNo}
 	</update>
 	
 	<!-- 받은 메일 삭제 -->
