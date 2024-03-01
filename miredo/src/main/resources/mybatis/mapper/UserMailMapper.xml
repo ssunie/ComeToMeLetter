@@ -101,6 +101,13 @@
 		 WHERE RPL_NO = #{rplNo}
 	</update>
 	
+	<update id="deleteReply">
+		UPDATE FROM TB_REPLY
+		   SET RPL_DATE = #{rplDate}
+			  ,RPL_CONTENT = #{rplContent}
+		 WHERE RPL_NO = #{rplNo}
+	</update>
+	
 	<!-- 받은 메일 삭제 -->
 	<update id="deleteRecivedMail">
 		UPDATE FROM TB_MAIL
