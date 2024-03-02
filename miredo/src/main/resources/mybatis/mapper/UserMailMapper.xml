@@ -90,8 +90,7 @@
   			  ,MAIL_SEND_DATE
   			  ,MAIL_TITLE
   		      ,MAIL_CONTENT
-  		      ,RPL_CONTENT
-  		  FROM TB MAIL
+  		  FROM TB_MAIL
   		 WHERE MAIL_NO = #{mailNo}
   	</select> 
 	
